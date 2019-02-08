@@ -12,6 +12,6 @@ public class ZeroDay implements Offense
         return level;
     }
     public void upgrade(){
-        level++;
+        int x = 0;
     }
 }

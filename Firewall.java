@@ -7,25 +7,11 @@
  */
 public class Firewall implements Defense
 {
-    private int level = 0;
-    private boolean closePorts = false;
-    private int closeBackdoors = 0;
+    private int level = 1;
     public int getLevel(){
         return level;
     }
     public void upgrade(){
         level++;
-    }
-    public boolean portsClosed(){
-        return closePorts;
-    }
-    public int backdoorProtectLevel(){
-        return closeBackdoors;
-    }
-    public void closePorts(){
-        closePorts = true;
-    }
-    public void closeBackdoors(){
-        closeBackdoors++;
     }
 }

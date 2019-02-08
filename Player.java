@@ -5,34 +5,47 @@
  * @author (your name here)
  * @version (version number or date here)
  */
-public abstract class Player
+public class Player
 {
-    private Defense antimalware = new Antimalware();
-    private Defense firewall = new Firewall();
-    private Offense zeroday = new ZeroDay();
-    private Offense ddos = new DDOS();
-    private Offense trojan = new Trojan();
-    private Offense worm = new Worm();
-    private double CPU = 1.0;
-    public double getCPU(){
+    private Antimalware antimalware = new Antimalware();
+    private Firewall firewall = new Firewall();
+    private ZeroDay zeroday = new ZeroDay();
+    private DDOS ddos = new DDOS();
+    private Trojan trojan = new Trojan();
+    private Worm worm = new Worm();
+    private int CPU = 0;
+    public int getCPU(){
         return CPU;
     }
     public void addCPU(){
-        CPU += 1.0;
+        CPU += 10;
     }
-    public void upgradeDefense(String input){
-        if (input == "antimalware"){
-            antimalware.upgrade();
-        } else if (input == "firewall"){
-            firewall.upgrade();
-        } else if (input == "zeroday"){
-            zeroday.upgrade();
-        } else if (input == "ddos"){
-            ddos.upgrade();
-        } else if (input == "trojan"){
-            trojan.upgrade();
-        } else if (input == "worm"){
-            worm.upgrade();
-        }
+    //Precondition: amount is >= the value of CPU
+    public void spendCPU(int amount){
+        CPU -= amount;
+    }
+    //Subtracts CPU
+    //Precondition: moneh is correctly calculated
+    public void boughtSomething(int moneh){
+        CPU-=moneh;
+    }
+    //Object "get" statements
+    public Firewall getFirewall(){
+        return firewall;
+    }
+    public Antimalware getAntimalware(){
+        return antimalware;
+    }
+    public ZeroDay getZeroDay(){
+        return zeroday;
+    }
+    public DDOS getDDOS(){
+        return ddos;
+    }
+    public Trojan getTrojan(){
+        return trojan;
+    }
+    public Worm getWorm(){
+        return worm;
     }
 }
